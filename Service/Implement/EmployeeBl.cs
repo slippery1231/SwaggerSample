@@ -12,6 +12,7 @@ public class EmployeeBl : IEmployeeBl
 
     public List<Employee> GetEmployee(Guid employeeId)
     {
+        //這邊先用List模擬DB情況
         var employeeList = new List<Employee>
         {
             new()
