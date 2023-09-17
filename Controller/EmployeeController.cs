@@ -15,6 +15,18 @@ public class EmployeeController : ControllerBase
     }
 
     /// <summary>
+    /// 取得全部員工資料
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
+    [Route("api/employee/getall")]
+    [AllowAnonymous]
+    public List<Employee> GetAllEmployee()
+    {
+        return _employeeBl.GetAllEmployee();
+    }
+
+    /// <summary>
     /// 取得單筆員工資料
     /// </summary>
     /// <param name="employeeId"></param>

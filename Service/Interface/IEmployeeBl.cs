@@ -5,6 +5,7 @@ namespace SwaggerSample.Service.Interface;
 
 public interface IEmployeeBl
 {
+    public List<Employee> GetAllEmployee();
     public List<Employee> GetEmployee(Guid employeeId);
 
 }
