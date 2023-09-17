@@ -45,14 +45,6 @@ public class EmployeeBl : IEmployeeBl
 
     public void CreateEmployee(Employee employee)
     {
-        if (employee != null)
-        {
-            _employeeList.Add(employee);
-        }
-        else
-        {
-            throw new Exception("資料有誤");
-        }
-
+        _employeeList.Add(employee);
     }
 }

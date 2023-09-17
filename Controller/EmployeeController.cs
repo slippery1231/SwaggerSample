@@ -43,9 +43,15 @@ public class EmployeeController : ControllerBase
     [HttpPost]
     [Route("api/employee/add")]
     [AllowAnonymous]
-    public HttpStatusCode AddEmployee([FromBody]Employee employee)
+    [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Employee))]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(string))]
+    public IActionResult AddEmployee([FromBody] Employee employee)
     {
+        if (employee == null)
+        {
+            return BadRequest("傳入為Null");
+        }
         _employeeBl.CreateEmployee(employee);
-        return HttpStatusCode.OK ;
+        return Ok(employee);
     }
 }
