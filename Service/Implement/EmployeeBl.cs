@@ -42,4 +42,17 @@ public class EmployeeBl : IEmployeeBl
     {
         return _employeeList.Where(x => x.EmployeeId == employeeId).ToList();
     }
+
+    public void CreateEmployee(Employee employee)
+    {
+        if (employee != null)
+        {
+            _employeeList.Add(employee);
+        }
+        else
+        {
+            throw new Exception("資料有誤");
+        }
+
+    }
 }

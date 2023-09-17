@@ -1,3 +1,4 @@
+using System.Net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SwaggerSample.Service.Interface;
@@ -37,5 +38,14 @@ public class EmployeeController : ControllerBase
     public List<Employee> GetEmployee([FromQuery] Guid employeeId)
     {
         return _employeeBl.GetEmployee(employeeId);
+    }
+
+    [HttpPost]
+    [Route("api/employee/add")]
+    [AllowAnonymous]
+    public HttpStatusCode AddEmployee([FromBody]Employee employee)
+    {
+        _employeeBl.CreateEmployee(employee);
+        return HttpStatusCode.OK ;
     }
 }
