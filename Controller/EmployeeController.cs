@@ -13,9 +13,9 @@ public class EmployeeController : ControllerBase
     /// <param name="employeeId"></param>
     /// <returns></returns>
     [HttpGet]
-    [Route("api/employee/getemployee{employeeId}")]
+    [Route("api/employee")]
     [AllowAnonymous]
-    public List<Employee> GetEmployee(Guid employeeId)
+    public List<Employee> GetEmployee([FromQuery]Guid employeeId)
     {
         var employeeBl = new EmployeeBl(employeeId);
         return employeeBl.GetEmployee(employeeId);
