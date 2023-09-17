@@ -1,4 +1,6 @@
 using Microsoft.OpenApi.Models;
+using SwaggerSample.Service.Implement;
+using SwaggerSample.Service.Interface;
 
 namespace SwaggerSample;
 
@@ -19,6 +21,7 @@ public class Startup
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "SwaggerSample", Version = "v1" });
         });
+        services.AddTransient<IEmployeeBl>(_ => new EmployeeBl(Guid.Empty));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

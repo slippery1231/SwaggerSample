@@ -1,12 +1,19 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SwaggerSample.Service.Implement;
+using SwaggerSample.Service.Interface;
 using SwaggerSample.ViewModel;
 
 namespace SwaggerSample.Controller;
 
 public class EmployeeController : ControllerBase
 {
+    private readonly IEmployeeBl _employeeBl;
+
+    public EmployeeController(IEmployeeBl employeeBl)
+    {
+        _employeeBl = employeeBl;
+    }
+
     /// <summary>
     /// 取得單筆員工資料
     /// </summary>
@@ -15,10 +22,8 @@ public class EmployeeController : ControllerBase
     [HttpGet]
     [Route("api/employee")]
     [AllowAnonymous]
-    public List<Employee> GetEmployee([FromQuery]Guid employeeId)
+    public List<Employee> GetEmployee([FromQuery] Guid employeeId)
     {
-        var employeeBl = new EmployeeBl(employeeId);
-        return employeeBl.GetEmployee(employeeId);
+        return _employeeBl.GetEmployee(employeeId);
     }
-    
 }

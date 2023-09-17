@@ -1,14 +1,17 @@
 using SwaggerSample.Service.Interface;
 using SwaggerSample.ViewModel;
-using System.Collections.Generic;
 
 namespace SwaggerSample.Service.Implement;
 
 public class EmployeeBl : IEmployeeBl
 {
+    private readonly Guid _employeeId;
+
     public EmployeeBl(Guid employeeId)
     {
+        _employeeId = employeeId;
     }
+
 
     public List<Employee> GetEmployee(Guid employeeId)
     {
