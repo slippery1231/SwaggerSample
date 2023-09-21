@@ -21,7 +21,7 @@ public class Startup
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "SwaggerSample", Version = "v1" });
         });
-        services.AddTransient<IEmployeeBl>(_ => new EmployeeBl(Guid.Empty));
+        services.AddTransient<ICustomerBl,CustomerBl>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
