@@ -1,19 +1,19 @@
 namespace SwaggerSample.ViewModel;
 
-public class Employee
+public class Customer
 {
     /// <summary>
-    /// 員工姓名
+    /// 客戶姓名
     /// </summary>
     public string Name { get; set; }
     
     /// <summary>
-    /// 員工ID
+    /// 客戶ID
     /// </summary>
-    public Guid EmployeeId { get; set; }
+    public Guid CustomerId { get; set; }
 
     /// <summary>
-    /// 員工編號
+    /// 客戶生日
     /// </summary>
-    public string EmployeeNumber { get; set; }
+    public string Birthday { get; set; }
 }
