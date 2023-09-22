@@ -54,4 +54,9 @@ public class OrderBl : IOrderBl
     {
         return _allOrders;
     }
+
+    public List<Order> GetSingleOrder(string date, Guid customerId)
+    {
+        return _allOrders.Where(x => x.BookingDate == date && x.CustomerId == customerId).ToList();
+    }
 }
